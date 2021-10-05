@@ -40,22 +40,37 @@ $("#searchForm").on("submit", (e) => {
 function displayMovies(movies) {
   let output = '';
   $(movies).each((i, val) => {
-    output += `
+    fetchRatings(val.id)
+    .then(score => {
+      output += `
       <div class="card">
         <img src="https://image.tmdb.org/t/p/w500${val.poster_path}" class="card-img-top " alt="movie poster">
         <div class="card-body p-0 mt-2">
           <h6 class="d-grid btn btn-dark text-center">${val.title}</h6>
           <div class="d-flex justify-content-between" >
-          <p class="card-text"><span class='badge bg-info text-dark'>TMdb</span> ${val.vote_average}</p>
+          <p class="card-text"><span class='badge bg-info text-dark'>TMdb</span> ${score}</p>
           <p class="card-text">${val.release_date.slice(0, 4)}</p>
           </div>
           <div class="overview d-grid"><p>${val.overview}</p><a class='btn btn-info' href=${val.id}>Detail</a></div>
         </div>
       </div>`
-    $(".box").html(output);
+      $(".box").html(output);
+    })
+    
+
   });
 }
 
+async function fetchRatings(movie_id) {
+  try {
+    const res = await fetch(`/ratings/${movie_id}`);
+    const data = await res.json();
+    return data.score;
+  }
+  catch(err) {
+      console.log(err);
+  }
+}
 
 // fetching all the genre type
 $.ajax(`
