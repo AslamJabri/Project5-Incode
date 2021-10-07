@@ -3,9 +3,9 @@ const db = require('../database');
 const router = Router();
 const jwt = require('jsonwebtoken'); 
 
-
-router.get("/", (req, res) => {
-    res.render("../views/pages/home")
+router.get("/", async (req, res) => {
+    const ratings = await db.query("select rating from ratings;");
+    res.render("../views/pages/home", {ratings})
 })
 
 router.get("/:id", (req, res) => {
@@ -82,7 +82,5 @@ router.get("/rated/:movie_id", async (req, res) => {
         res.status(201).json({ isAuth });
     }
 })
-
-
 
 module.exports = router

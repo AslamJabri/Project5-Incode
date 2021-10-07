@@ -10,7 +10,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url('collagemovie.jpg') ;
-  transform: perspective(500px) rotateX(10deg);
+  transform:  rotateX(15deg);
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -25,7 +25,10 @@ body {
   flex-direction: column;
   /* min-height: 100vh; */
 }
-
+#outer{
+  height : 80%;
+  width: 30%;
+}
 .outer-container {
   width: 300px;
   height: 380px;
@@ -46,6 +49,7 @@ body {
   margin: auto;
   justify-content: space-between;*/
 }
+
 
 .inner-container {
   width: 90%;
@@ -117,3 +121,25 @@ button {
 .already-signup a {
   color:whitesmoke;
 }
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+ 
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  padding: 1em;
+}
+
+li{
+  display: inline;
+}
+li a { 
+  padding: 8px;
+  background-color:black;
+  text-decoration: none;
+  font-size: large;
+  color: white;
+  }

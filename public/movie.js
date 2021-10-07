@@ -1,5 +1,3 @@
-// const api_key = "?api_key=c820500c0a92520524ea977cc56c8a32"
-// const base_url = "https://api.themoviedb.org/3";
 
 $.ajax(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=c820500c0a92520524ea977cc56c8a32`).then(data => {
     
@@ -67,3 +65,5 @@ async function checkRated(movie_id) {
 $(".movie-details li").on("click", () => {
     console.log("clicked");
 })
+
+

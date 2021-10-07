@@ -4,8 +4,7 @@ const api_url = `${base_url}/discover/movie?sort_by=popularity.desc&${api_key}`;
 const search_url = `${base_url}/search/movie?${api_key}`;
 const rating_url = `${base_url}/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&${api_key}`
 const kids_url = `${base_url}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&${api_key}`
-const genre_url = `${base_url}/discover/movie?with_genres=`
-
+const genre_url = `${base_url}/discover/movie?with_genres=`;
 
 fetchMovies(api_url);
 
